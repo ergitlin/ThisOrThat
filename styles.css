@@ -1,10 +1,12 @@
 body{
     font-family: "Comic Sans MS", cursive, sans-serif;
+    background-image: url('BackgroundImg.png');
 }
 
 h1 {
     text-shadow: 2px 2px 5px red;
-    font-size: 300%;
+    font-size: 400%;
+    margin-bottom: 0px;
 }
 
 img{
