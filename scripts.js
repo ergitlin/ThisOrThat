@@ -1,3 +1,7 @@
+window.onload = function() {
+    
+}
+
 function clickItem(itemNum){
     window.alert(itemNum); //adds popup
     updateItems();
