@@ -31,8 +31,18 @@ img{
     width:50%;
 }
 
+.item1:hover{
+    background-color: yellow;
+    transition: .3s;
+}
+
 .item2{
     padding: 50px;
     float:right;
     width:50%;
+}
+
+.item2:hover{
+    background-color: yellow;
+    transition: .3s;
 }
