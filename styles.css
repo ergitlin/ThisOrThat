@@ -1,0 +1,8 @@
+body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px 5px red;
+}
