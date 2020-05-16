@@ -1,10 +1,11 @@
 function clickItem(itemNum){
     window.alert(itemNum);
+    updateItems();
 }
 
 function updateItems(){
-    var image1 = document.getElementById(img1);
-    var image2 = document.getElementById(img2);
+    var image1 = document.getElementById('img1');
+    var image2 = document.getElementById('img2');
     
     image1.src = "https://images-na.ssl-images-amazon.com/images/I/71APeLt-jaL._AC_SL1088_.jpg";
     
