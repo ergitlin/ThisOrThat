@@ -22,7 +22,7 @@ var dict = {
     "Stars": 0,
     "Constellations": 0,
     "The Necronomicon": 0,
-    "The Person Reading This": 0,
+    //"The Person Reading This": 0,
     "Me": 0,
     "Anarchy": 0,
     "Sewers": 0,
@@ -36,7 +36,7 @@ var dict = {
     "Grass": 0,
     "Lakes": 0,
     "Emily": 0,
-    "The Forbidden Texts": 0,
+    //"The Forbidden Texts": 0,
     "Bottles": 0,
     "Stalactite": 0,
     "Art": 0,
@@ -44,7 +44,7 @@ var dict = {
     "The Sun": 0,
     "The Moon": 0,
     "Tinsel": 0,
-    "Three Raccoons in a Trench Coat": 0,
+    //"Three Raccoons in a Trench Coat": 0,
     "Lobsters": 0,
     "Joey": 0,
     "The Night": 0,
@@ -94,7 +94,7 @@ var dict = {
     "Too Many Legs": 0,
     "String": 0,
     "Pocket Sand": 0,
-    "No Fewer Than Nine Eyes": 0,
+    //"No Fewer Than Nine Eyes": 0,
     "Minecraft Steve": 0,
     "The President": 0,
     "Poisonous Gas": 0,
@@ -111,7 +111,7 @@ function clickItem(itemNum){
     //get two new items
     var wordNum1 = wordGrab();
     var wordNum2 = wordGrab();
-    
+
     //update the items with the new information
     updateItems(wordNum1, wordNum2);
 }
@@ -130,8 +130,9 @@ function updateItems(wordNum1, wordNum2){
     var image1 = document.getElementById('img1');
     var image2 = document.getElementById('img2');
 
-    image1.src = "https://images-na.ssl-images-amazon.com/images/I/71APeLt-jaL._AC_SL1088_.jpg";
-    image2.src = "https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2019/08-august/04-blog-grapefruit-juice-l.jpg?h=630&la=en&w=1200&hash=38967FA3C9D017D66A4C360D4185099B";
+    flickerImg();
+    //image1.src = "https://images-na.ssl-images-amazon.com/images/I/71APeLt-jaL._AC_SL1088_.jpg";
+    //image2.src = "https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2019/08-august/04-blog-grapefruit-juice-l.jpg?h=630&la=en&w=1200&hash=38967FA3C9D017D66A4C360D4185099B";
 }
 //Things we need to do:
 
@@ -152,3 +153,57 @@ function image69(){
 }
 //sets image1 and image2 to be those images, and the text to be that text
 //this is done in update items I think
+
+
+function flickerImg(){
+    var keyword1 = document.getElementById('wrd1').innerHTML;
+    console.log(keyword1);
+    var keyword2 = document.getElementById('wrd2').innerHTML;
+    console.log(keyword2);
+
+    $(document).ready(function(){
+
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+                  {
+            text: keyword1,
+            tags: keyword1,
+            tagmode: "any",
+            format: "json",
+            content_type: 1
+        },
+                  function(data) {
+            var rnd = Math.floor(Math.random() * data.items.length);
+            console.log("R", rnd);
+
+            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
+
+            var image1 = document.getElementById('img1');
+
+            image1.src = image_src;
+        });
+
+    });
+
+    $(document).ready(function(){
+
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+                  {
+            text: keyword2,
+            tags: keyword2,
+            tagmode: "any",
+            format: "json",
+            content_type: 1
+        },
+                  function(data) {
+            var rnd = Math.floor(Math.random() * data.items.length);
+
+            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
+
+            var image2 = document.getElementById('img2');
+
+            image2.src = image_src;
+
+        });
+
+    });
+}
