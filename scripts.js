@@ -83,7 +83,7 @@ var dict = {
     "Moss": 0,
     "Glass": 0,
     "Wheat Thins": 0,
-    "Foxes": 0,
+    "Fox": 0,
     "Antartica": 0,
     "Cards Against Humanity": 0,
     "You": 0,
@@ -108,12 +108,39 @@ window.onload = function() {
 }
 
 function clickItem(itemNum){
+
+    //update scores of the previous words
+    var oldWord1 = (document.getElementById('wrd1')).innerHTML
+    var oldWord2 = (document.getElementById('wrd2')).innerHTML
+
+    console.log("before update: ");
+    console.log(dict);
+
+    //increment the score of the chosen item here
+    if (itemNum === 1){
+      console.log("User chose: " + oldWord1);
+      dict[oldWord1] = dict[oldWord1] + 1;
+    }
+    else{
+      dict[oldWord2] = dict[oldWord2] + 1;
+      console.log("User chose: " + oldWord2);
+    }
+
+    console.log("after update: ");
+    console.log(dict);
+
     //get two new items
     var wordNum1 = wordGrab();
     var wordNum2 = wordGrab();
 
+    //setting the
+    // var wordKey1 = Object.keys(dict)[wordNum1]
+    // var wordKey2 = Object.keys(dict)[wordNum2]
+
     //update the items with the new information
+
     updateItems(wordNum1, wordNum2);
+
 }
 
 function updateItems(wordNum1, wordNum2){
@@ -121,8 +148,11 @@ function updateItems(wordNum1, wordNum2){
     var word1 = document.getElementById('wrd1');
     var word2 = document.getElementById('wrd2');
 
-    console.log(Object.keys(dict)[wordNum1]);
-    console.log(wordNum1);
+    //testing if word1 and its index print
+    // console.log(Object.keys(dict)[wordNum1]);
+    // console.log(wordNum1);
+
+    //
     word1.innerHTML = Object.keys(dict)[wordNum1];
     word2.innerHTML = Object.keys(dict)[wordNum2];
 
