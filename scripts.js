@@ -13,6 +13,8 @@ function updateItems(){
     var word1 = document.getElementById('word1')
     var word2 = document.getElementById('word2')
 
+    word1.innerHTML
+
 
     //declare image1 and image2 which are
     var image1 = document.getElementById('img1');
