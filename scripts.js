@@ -1,5 +1,6 @@
+
 window.onload = function() {
-    
+
 }
 
 function clickItem(itemNum){
@@ -8,6 +9,11 @@ function clickItem(itemNum){
 }
 
 function updateItems(){
+    //declare word1 and word2 which are
+    var word1 = document.getElementById('word1')
+    var word2 = document.getElementById('word2')
+
+
     //declare image1 and image2 which are
     var image1 = document.getElementById('img1');
     var image2 = document.getElementById('img2');
